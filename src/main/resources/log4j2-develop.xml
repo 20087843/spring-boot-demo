@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="sysLogFile" value="system.log"/>
+        <Property name="runtimeFile" value="runtime.log"/>
+        <Property name="restClientFile" value="restClient.log"/>
+
+        <Property name="compressFile" value="target/rolling1/test1-${sd:type}.%i.log.gz"/>
+        <Property name="logPattern" value="%d{HH:mm:ss.SSS} [%t] [%5level] %logger{36} - %msg%n"/>
+    </Properties>
+
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT" pattern="${logPattern}"/>
+
+        <File name="ERROR" fileName="error.log" append="false">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${logPattern}"/>
+        </File>
+
+        <File name="WARN" fileName="warn.log" append="false">
+            <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${logPattern}"/>
+        </File>
+
+        <RollingFile name="ALL" fileName="${sysLogFile}" filePattern="${compressFile}">
+            <PatternLayout pattern="${logPattern}"/>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="Rolling-${sd:type}" fileName="${runtimeFile}" filePattern="${compressFile}">
+            <PatternLayout pattern="${logPattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="Rolling-${sd:type}" fileName="${restClientFile}" filePattern="${compressFile}">
+            <PatternLayout pattern="${logPattern}"/>
+            <SizeBasedTriggeringPolicy size="10M"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="error">
+            <AppenderRef ref="CONSOLE"/>
+        </Root>
+
+        <logger name="org.springframework" level="INFO"></logger>
+        <logger name="org.mybatis" level="INFO"></logger>
+    </Loggers>
+
+</Configuration>
