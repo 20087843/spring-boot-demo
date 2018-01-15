@@ -1,6 +1,7 @@
 package pri.smilly.common;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.io.FileSystemResource;
@@ -20,7 +21,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.zip.ZipException;
 
-@Log4j
+@Slf4j
 public class PackageScanner {
     private PathMatcher pathMatcher = new AntPathMatcher();
 
