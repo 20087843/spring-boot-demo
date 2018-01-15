@@ -1,5 +1,6 @@
 # git ignore rules
 
 *.iml
+*.log
 /target/
 .idea
