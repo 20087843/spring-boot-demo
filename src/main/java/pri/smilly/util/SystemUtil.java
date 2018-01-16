@@ -33,7 +33,8 @@ public class SystemUtil {
     }
 
     public static File getResource(String relatePath) throws FileNotFoundException {
-        return ResourceUtils.getFile(relatePath).getAbsoluteFile();
+        String path = ResourceUtils.getFile(relatePath).toURI().getPath();
+        return new File(path);
     }
 
     public static boolean isWindows() {

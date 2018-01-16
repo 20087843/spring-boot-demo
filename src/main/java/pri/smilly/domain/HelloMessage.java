@@ -9,6 +9,6 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HelloMessage {
+public class HelloMessage extends BaseDomain<HelloMessage> {
     private String name;
 }

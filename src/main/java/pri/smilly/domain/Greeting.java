@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Greeting extends BaseDomain {
+public class Greeting extends BaseDomain<Greeting> {
     private String content;
 
 }

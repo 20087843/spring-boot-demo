@@ -19,6 +19,14 @@ public class HttpRestResult {
         return status >= 200 && status < 300;
     }
 
+    public boolean isError() {
+        return error == null;
+    }
+
+    public boolean isEmptyMsg() {
+        return message == null || "".equals(message);
+    }
+
     @Override
     public String toString() {
         return status + " " + message;
