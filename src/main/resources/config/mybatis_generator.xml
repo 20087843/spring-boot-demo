@@ -27,7 +27,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="main.java.pri.smilly.domain" targetProject="src">
+        <javaModelGenerator targetPackage="main.java.pri.smilly.demo.domain" targetProject="src">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
