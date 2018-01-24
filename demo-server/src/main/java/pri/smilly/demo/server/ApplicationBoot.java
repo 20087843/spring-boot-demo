@@ -12,13 +12,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 @Slf4j
-//@EnableWebMvc
+@EnableWebMvc
 @EnableWebSocket
 @EnableScheduling
 @EnableAspectJAutoProxy
 @SpringBootApplication
-//@ServletComponentScan
-//@MapperScan("pri.smilly.demo.server.domain")
+@ServletComponentScan
+@MapperScan("pri.smilly.demo.server.domain")
 public class ApplicationBoot {
 
     public static void main(String[] args) {
