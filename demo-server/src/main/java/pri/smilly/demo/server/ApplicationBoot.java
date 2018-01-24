@@ -8,15 +8,17 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 @Slf4j
+//@EnableWebMvc
 @EnableWebSocket
 @EnableScheduling
 @EnableAspectJAutoProxy
 @SpringBootApplication
-@ServletComponentScan
-@MapperScan("pri.smilly.demo.domain")
+//@ServletComponentScan
+//@MapperScan("pri.smilly.demo.server.domain")
 public class ApplicationBoot {
 
     public static void main(String[] args) {

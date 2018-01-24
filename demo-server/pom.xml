@@ -25,7 +25,16 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-logging</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
 
         <dependency>
@@ -71,11 +80,49 @@
             <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
 
+        <!-- ###### network ##### -->
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+        </dependency>
+
+        <!-- ###### sub module ##### -->
+        <dependency>
+            <groupId>pri.smilly.demo</groupId>
+            <artifactId>demo-runtime</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>pri.smilly.demo</groupId>
+            <artifactId>demo-restclient</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>develop</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <profiles.active>develop</profiles.active>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>reslease</id>
+            <properties>
+                <profiles.active>reslease</profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

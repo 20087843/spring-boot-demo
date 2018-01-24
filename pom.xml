@@ -39,7 +39,6 @@
     </properties>
 
     <modules>
-        <module>demo-common</module>
         <module>demo-server</module>
         <module>demo-runtime</module>
         <module>demo-restclient</module>
@@ -47,6 +46,7 @@
         <module>demo-native</module>
         <module>demo-test</module>
         <module>note</module>
+        <module>demo-common</module>
     </modules>
 
     <parent>
@@ -68,13 +68,7 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
-            </dependency>
-
-            <!-- ###### log ##### -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-log4j2</artifactId>
-                <version>${log4j2.version}</version>
+                <scope>runtime</scope>
             </dependency>
 
             <!-- ###### rest ##### -->
@@ -270,7 +264,7 @@
             <dependency>
                 <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-junit4</artifactId>
-                <version>1.4.10</version>
+                <version>${powermock.version}</version>
                 <scope>test</scope>
             </dependency>
 
@@ -314,6 +308,20 @@
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${maven-jacoco-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${maven-shade-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
 
             </plugins>
