@@ -53,4 +53,3 @@
 ## reference
   1. [Spring boot Reference](../../resources/spring-boot-reference.pdf)
   2. [Spring boot参考指南](https://www.jianshu.com/p/67a0e41dfe05?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation)
-  3. 

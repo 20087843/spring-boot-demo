@@ -22,6 +22,8 @@
   |   params   |    指定request中必须包含某些参数值是，才让该方法处理  |
   |   headers   |   指定request中必须包含某些指定的header值，才能让该方法处理请求   |
 
+## RqueatHandlerMapping UML
+![](../../resources/20170304125505000.jpg)
 
 ## SpringMVC 请求路径匹配过程(AbstractHandlerMethodMapping.lookupHandlerMethod)
 ![](../../resources/AbstractHandlerMethodMapping.png)

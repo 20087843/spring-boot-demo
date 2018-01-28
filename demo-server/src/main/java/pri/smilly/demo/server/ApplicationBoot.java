@@ -24,7 +24,7 @@ public class ApplicationBoot {
     public static void main(String[] args) {
         try {
             long start = System.currentTimeMillis();
-            ApplicationContext ctx = SpringApplication.run(ApplicationBoot.class, args);
+            SpringApplication.run(ApplicationBoot.class, args);
             long time = System.currentTimeMillis() - start;
             log.info("application launch up success, time spend " + time);
         } catch (IllegalStateException e) {
