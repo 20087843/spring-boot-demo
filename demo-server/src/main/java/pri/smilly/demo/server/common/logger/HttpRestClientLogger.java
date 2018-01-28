@@ -1,4 +1,4 @@
-package pri.smilly.demo.server.logger;
+package pri.smilly.demo.server.common.logger;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;

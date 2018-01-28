@@ -23,6 +23,7 @@
         <lombok.version>1.16.18</lombok.version>
         <httpcomponents.version>4.5.3</httpcomponents.version>
         <netty.version>3.10.5.Final</netty.version>
+        <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <commons-io.version>2.4</commons-io.version>
         <commons-lang.version>3.6</commons-lang.version>
         <commons-compress.version>1.14</commons-compress.version>
@@ -31,11 +32,18 @@
         <guava.version>23.6-jre</guava.version>
         <mockito.version>1.10.19</mockito.version>
         <powermock.version>1.4.10</powermock.version>
+        <pagehelper.version>1.1.2</pagehelper.version>
+        <quartz.version>2.3.0</quartz.version>
 
         <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
         <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
         <maven-mabtis-generator.version>1.3.2</maven-mabtis-generator.version>
         <maven-jacoco-plugin.version>0.7.7.201606060606</maven-jacoco-plugin.version>
+
+        <skipCheckstyle>false</skipCheckstyle>
+        <checkstyle-suppressions-file>checkstyle/suppressions.xml</checkstyle-suppressions-file>
+        <checkstyle-config-file>checkstyle/checkstyle.xml</checkstyle-config-file>
+        <checkstyle-header-file>checkstyle/header.txt</checkstyle-header-file>
     </properties>
 
     <modules>
@@ -84,6 +92,12 @@
                 <version>${swagger.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
             <!-- ###### native ##### -->
             <dependency>
                 <groupId>com.github.jnr</groupId>
@@ -118,6 +132,18 @@
             </dependency>
 
             <!-- ###### util ##### -->
+            <dependency>
+                <groupId>org.quartz-scheduler</groupId>
+                <artifactId>quartz</artifactId>
+                <version>${quartz.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
@@ -295,7 +321,7 @@
                 <plugin>
                     <groupId>org.mybatis.generator</groupId>
                     <artifactId>mybatis-generator-maven-plugin</artifactId>
-                    <version>${maven-mabtis-generator.version>}</version>
+                    <version>${maven-mabtis-generator.version}</version>
                 </plugin>
 
                 <plugin>
@@ -324,6 +350,47 @@
                     </executions>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>2.4.0</version>
+                    <configuration>
+                        <findbugsXmlOutput>true</findbugsXmlOutput>
+                        <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+                        <xmlOutput>true</xmlOutput>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>2.9.1</version>
+
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                        <configLocation>${checkstyle-config-file}</configLocation>
+                        <headerLocation>${checkstyle-header-file}</headerLocation>
+                        <suppressionsLocation>${checkstyle-suppressions-file}</suppressionsLocation>
+                        <consoleOutput>true</consoleOutput>
+                        <logViolationsToConsole>true</logViolationsToConsole>
+                        <failsOnError>true</failsOnError>
+                        <failOnViolation>true</failOnViolation>
+                        <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                        <enableRulesSummary>true</enableRulesSummary>
+                        <linkXRef>false</linkXRef>
+                        <skip>${skipCheckstyle}</skip>
+                    </configuration>
+
+                    <executions>
+                        <execution>
+                            <id>run-checkstyle</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>checkstyle</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>

@@ -18,7 +18,7 @@ public class SystemConfiguration implements SignalHandler {
     @PostConstruct
     public void initial() throws Exception {
         cachePath = SystemUtil.getResource("cache");
-        log.info("");
+        log.info("system cache path is " + cachePath);
     }
 
     @Override

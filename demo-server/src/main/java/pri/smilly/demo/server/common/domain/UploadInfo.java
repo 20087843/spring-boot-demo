@@ -1,4 +1,4 @@
-package pri.smilly.demo.server.domain;
+package pri.smilly.demo.server.common.domain;
 
 import pri.smilly.demo.domain.BaseDomain;
 

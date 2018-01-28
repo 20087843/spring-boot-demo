@@ -3,7 +3,7 @@ package pri.smilly.demo.server.component;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 import pri.smilly.demo.server.config.SystemConfiguration;
-import pri.smilly.demo.server.domain.UploadInfo;
+import pri.smilly.demo.server.common.domain.UploadInfo;
 import pri.smilly.demo.util.ConverterUtil;
 import pri.smilly.demo.util.FileUtil;
 

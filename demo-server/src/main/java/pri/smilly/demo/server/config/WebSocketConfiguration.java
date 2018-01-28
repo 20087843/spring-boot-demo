@@ -11,7 +11,7 @@ import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 import pri.smilly.demo.server.controller.websocket.TextMessageController;
-import pri.smilly.demo.server.interceptor.WebSocketInterceptor;
+import pri.smilly.demo.server.common.interceptor.WebSocketInterceptor;
 
 @Configuration
 public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfigurer implements WebSocketConfigurer {

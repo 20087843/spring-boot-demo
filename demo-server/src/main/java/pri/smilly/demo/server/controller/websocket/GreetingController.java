@@ -2,8 +2,8 @@ package pri.smilly.demo.server.controller.websocket;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import pri.smilly.demo.server.domain.Greeting;
-import pri.smilly.demo.server.domain.HelloMessage;
+import pri.smilly.demo.server.common.domain.Greeting;
+import pri.smilly.demo.server.common.domain.HelloMessage;
 
 public class GreetingController {
     @MessageMapping("/hello")

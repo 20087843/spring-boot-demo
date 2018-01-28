@@ -67,16 +67,16 @@
 
     <Loggers>
 
-        <Root level="debug">
+        <Root level="info">
             <AppenderRef ref="CONSOLE"/>
             <AppenderRef ref="ALL"/>
             <AppenderRef ref="WARN"/>
             <AppenderRef ref="ERROR"/>
         </Root>
 
-        <logger name="org.springframework" level="debug"></logger>
-        <logger name="org.mybatis" level="debug"></logger>
-        <logger name="org.hibernate" level="debug"></logger>
+        <logger name="org.springframework" level="info"></logger>
+        <logger name="org.mybatis" level="info"></logger>
+        <logger name="org.hibernate" level="info"></logger>
 
         <logger name="pri.smilly.demo.logger.HttpRestClientLogger" level="debug">
             <AppenderRef ref="RESTCLIENT"/>

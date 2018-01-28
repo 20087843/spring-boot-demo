@@ -1,4 +1,4 @@
-package pri.smilly.demo.server.domain;
+package pri.smilly.demo.server.common.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import pri.smilly.demo.domain.BaseDomain;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HelloMessage extends BaseDomain<HelloMessage> {
-    private String name;
+public class Greeting extends BaseDomain<Greeting> {
+    private String content;
+
 }

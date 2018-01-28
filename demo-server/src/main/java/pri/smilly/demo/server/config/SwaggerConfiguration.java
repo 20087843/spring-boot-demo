@@ -19,15 +19,15 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("pri.smilly.demo"))
+                .apis(RequestHandlerSelectors.basePackage("pri.smilly.demo.server"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot中使用Swagger2构建RESTful APIs")
-                .description("更多Spring Boot相关文章请关注：http://blog.didispace.com/")
+                .title("DEMO REST API WITH SWAGGER")
+                .description("GITHUB SOURCE : ")
                 .termsOfServiceUrl("http://blog.didispace.com/")
                 .contact("Smilly")
                 .version("1.0")

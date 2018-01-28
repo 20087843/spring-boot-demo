@@ -1,4 +1,4 @@
-package pri.smilly.demo.server.listenner;
+package pri.smilly.demo.server.common.listenner;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
