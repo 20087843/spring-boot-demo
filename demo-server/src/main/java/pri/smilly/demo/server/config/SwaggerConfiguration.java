@@ -10,8 +10,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
 @EnableSwagger2
+@Configuration
 public class SwaggerConfiguration {
 
     @Bean
@@ -27,9 +27,9 @@ public class SwaggerConfiguration {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("DEMO REST API WITH SWAGGER")
-                .description("GITHUB SOURCE : ")
-                .termsOfServiceUrl("http://blog.didispace.com/")
+                .description("GITHUB SOURCE : https://github.com/20087843/demo.springboot.composite")
                 .contact("Smilly")
+                .termsOfServiceUrl("http://smilly.pri/smilly/api/v1")
                 .version("1.0")
                 .build();
     }

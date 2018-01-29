@@ -1,5 +1,6 @@
 package pri.smilly.demo.server.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.MultipartResolver;
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 @Configuration
 public class MvcConfiguration extends DelegatingWebMvcConfiguration {
+    @Value("${web.mvc.upload.size.max}")
+    private int uploadMaxSize;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -28,7 +31,7 @@ public class MvcConfiguration extends DelegatingWebMvcConfiguration {
     @Bean
     public MultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(1000000);
+        multipartResolver.setMaxUploadSize(uploadMaxSize);
         return multipartResolver;
     }
 }
