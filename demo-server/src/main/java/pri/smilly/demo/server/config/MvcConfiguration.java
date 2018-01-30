@@ -20,18 +20,12 @@ public class MvcConfiguration extends DelegatingWebMvcConfiguration {
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
-
     }
 
-    @Override
-    protected RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
-        return new RequestUrlAddPrefixHandlerMapping();
-    }
-
-    @Bean
+    /*@Bean
     public MultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setMaxUploadSize(uploadMaxSize);
         return multipartResolver;
-    }
+    }*/
 }
