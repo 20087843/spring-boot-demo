@@ -17,4 +17,8 @@ public abstract class BaseDomain<T extends BaseDomain<?>> implements Serializabl
         return ConverterUtil.bean2Map(this);
     }
 
+    @SneakyThrows
+    public <T> T convert(Class<T> target) {
+        return ConverterUtil.convert(this, target);
+    }
 }
